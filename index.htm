@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ثورة 23 يوليو 1952م - درس تفاعلي</title>
+<style>
+/* ═══════════════ ROOT VARIABLES ═══════════════ */
+:root {
+--bg-primary: #0a0a2e;
+--bg-secondary: #211740;
+--bg-tertiary: #2d1b4e;
+--bg-card: rgba(255,255,255,0.08);
+--bg-card-solid: #1a1145;
+--text-primary: #ffffff;
+--text-secondary: #c8c0e0;
+--text-muted: #9990b0;
+--accent-1: #00d4aa;
+--accent-2: #7c5cfc;
+--accent-3: #ff6b9d;
+--accent-4: #ffd93d;
+--accent-5: #4ecdc4;
+--border-color: rgba(124,92,252,0.3);
+--border-glow: rgba(124,92,252,0.5);
+--shadow-color: rgba(0,0,0,0.3);
+--card-blur: blur(20px);
+--gradient-main: linear-gradient(135deg,#7c5cfc,#00d4aa);
+--gradient-header: linear-gradient(135deg,#ff6b9d,#ffd93d,#00d4aa,#7c5cfc);
+--success: #00e676;
+--error: #ff5252;
+--warning: #ffd93d;
+--info: #40c4ff;
+--particle-opacity: 0.6;
+--scroll-btn-bg: rgba(124,92,252,0.8);
+--nav-height: 70px;
+}
+body.light-mode {
+--bg-primary: #f0f4ff;
+--bg-secondary: #e3eaff;
+--bg-tertiary: #d6e0ff;
+--bg-card: rgba(255,255,255,0.95);
+--bg-card-solid: #ffffff;
+--text-primary: #1a1a2e;
+--text-secondary: #3a3a5e;
+--text-muted: #6a6a8e;
+--accent-1: #00a085;
+--accent-2: #5a3fd4;
+--accent-3: #e0456e;
+--accent-4: #e6b800;
+--accent-5: #2eaa9e;
+--border-color: rgba(90,63,212,0.2);
+--border-glow: rgba(90,63,212,0.3);
+--shadow-color: rgba(0,0,0,0.1);
+--card-blur: blur(10px);
+--gradient-main: linear-gradient(135deg,#5a3fd4,#00a085);
+--gradient-header: linear-gradient(135deg,#e0456e,#e6b800,#00a085,#5a3fd4);
+--particle-opacity: 0.15;
+--scroll-btn-bg: rgba(90,63,212,0.8);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+background: var(--bg-primary);
+color: var(--text-primary);
+transition: all 0.4s ease;
+overflow-x: hidden;
+line-height: 1.8;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+/* ═══════════════ DESKTOP BLOCK ═══════════════ */
+#desktopBlock {
+display: none;
+position: fixed;
+inset: 0;
+background: linear-gradient(135deg,#0a0a2e,#2d1b4e);
+z-index: 999999;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: center;
+padding: 40px;
+}
+#desktopBlock .block-icon { font-size: 5rem; margin-bottom: 20px; }
+#desktopBlock h1 { font-size: 2rem; color: #ffd93d; margin-bottom: 15px; font-weight: 800; }
+#desktopBlock p { font-size: 1.1rem; color: #c8c0e0; max-width: 400px; }
+@media (min-width: 769px) {
+#desktopBlock { display: flex !important; }
+body > *:not(#desktopBlock) { display: none !important; }
+}
+
+/* ═══════════════ WATERMARK ═══════════════ */
+#watermark {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+.wm-text {
+position: absolute;
+font-size: 1.1rem;
+font-weight: 700;
+color: var(--accent-2);
+opacity: 0.07;
+transform: rotate(-35deg);
+white-space: nowrap;
+letter-spacing: 2px;
+}
+body.light-mode .wm-text { opacity: 0.06; }
+
+/* ═══════════════ ACCESS SCREEN ═══════════════ */
+#accessScreen {
+position: fixed;
+inset: 0;
+background: var(--bg-primary);
+z-index: 99998;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 30px;
+}
+.access-box {
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+border: 1px solid var(--border-color);
+border-radius: 24px;
+padding: 40px 30px;
+max-width: 380px;
+width: 100%;
+text-align: center;
+box-shadow: 0 20px 60px var(--shadow-color);
+}
+.access-logo { font-size: 3.5rem; margin-bottom: 15px; }
+.access-box h2 { font-size: 1.5rem; font-weight: 800; color: var(--accent-4); margin-bottom: 8px; }
+.access-box p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 25px; }
+.access-input {
+width: 100%;
+padding: 14px 18px;
+background: var(--bg-card-solid);
+border: 2px solid var(--border-color);
+border-radius: 12px;
+color: var(--text-primary);
+font-size: 1rem;
+font-family: monospace;
+text-align: center;
+letter-spacing: 2px;
+margin-bottom: 15px;
+outline: none;
+transition: all 0.3s;
+}
+.access-input:focus { border-color: var(--accent-2); box-shadow: 0 0 15px var(--border-glow); }
+.access-btn {
+width: 100%;
+padding: 14px;
+background: var(--gradient-main);
+border: none;
+border-radius: 12px;
+color: #fff;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+margin-bottom: 12px;
+}
+.access-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--border-glow); }
+.access-error { color: var(--error); font-size: 0.9rem; display: none; margin-top: 8px; }
+.access-attempts { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+
+/* ═══════════════ NAME SCREEN ═══════════════ */
+#nameScreen {
+position: fixed;
+inset: 0;
+background: var(--bg-primary);
+z-index: 99997;
+display: none;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 30px;
+}
+.name-box {
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+border: 1px solid var(--border-color);
+border-radius: 24px;
+padding: 40px 30px;
+max-width: 380px;
+width: 100%;
+text-align: center;
+box-shadow: 0 20px 60px var(--shadow-color);
+}
+.name-box h2 { font-size: 1.5rem; font-weight: 800; background: var(--gradient-header); background-size: 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 4s ease infinite; margin-bottom: 8px; }
+.name-box p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 25px; }
+.name-input {
+width: 100%;
+padding: 14px 18px;
+background: var(--bg-card-solid);
+border: 2px solid var(--border-color);
+border-radius: 12px;
+color: var(--text-primary);
+font-size: 1rem;
+text-align: center;
+margin-bottom: 15px;
+outline: none;
+transition: all 0.3s;
+font-family: inherit;
+}
+.name-input:focus { border-color: var(--accent-1); box-shadow: 0 0 15px rgba(0,212,170,0.3); }
+.name-btn {
+width: 100%;
+padding: 14px;
+background: var(--gradient-main);
+border: none;
+border-radius: 12px;
+color: #fff;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+font-family: inherit;
+}
+.name-error { color: var(--error); font-size: 0.85rem; display: none; margin-top: 8px; }
+
+/* ═══════════════ MAIN APP ═══════════════ */
+#mainApp { display: none; padding-bottom: calc(var(--nav-height) + 20px); }
+
+/* ═══════════════ PROGRESS BAR ═══════════════ */
+#progressBar {
+position: fixed;
+top: 0; left: 0;
+width: 0%;
+height: 4px;
+background: var(--gradient-main);
+z-index: 10000;
+transition: width 0.3s ease;
+box-shadow: 0 0 10px var(--accent-2);
+}
+
+/* ═══════════════ TOP BAR ═══════════════ */
+#topBar {
+position: fixed;
+top: 4px; left: 0; right: 0;
+height: 55px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 15px;
+z-index: 9999;
+background: rgba(10,10,46,0.85);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--border-color);
+}
+body.light-mode #topBar { background: rgba(240,244,255,0.9); }
+#scoreCounter {
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 50px;
+padding: 6px 14px;
+font-weight: 700;
+font-size: 0.85rem;
+color: var(--accent-4);
+display: flex;
+align-items: center;
+gap: 6px;
+}
+#studentNameDisplay {
+font-size: 0.8rem;
+color: var(--text-secondary);
+font-weight: 600;
+max-width: 120px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+cursor: pointer;
+}
+#themeToggle {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+border: 2px solid var(--border-color);
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+cursor: pointer;
+font-size: 1.2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.4s ease;
+}
+#themeToggle:hover { transform: rotate(180deg); border-color: var(--accent-2); }
+
+/* ═══════════════ TOAST ═══════════════ */
+.toast {
+position: fixed;
+top: 70px; right: 15px;
+background: var(--bg-card-solid);
+border: 1px solid var(--border-color);
+border-radius: 12px;
+padding: 10px 20px;
+z-index: 99999;
+font-weight: 600;
+font-size: 0.85rem;
+color: var(--text-primary);
+transform: translateX(120%);
+transition: transform 0.4s ease;
+box-shadow: 0 8px 30px var(--shadow-color);
+max-width: 280px;
+}
+.toast.show { transform: translateX(0); }
+
+/* ═══════════════ PARTICLES ═══════════════ */
+#particles {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+opacity: var(--particle-opacity);
+transition: opacity 0.4s ease;
+}
+.particle {
+position: absolute;
+border-radius: 50%;
+animation: floatParticle linear infinite;
+}
+@keyframes floatParticle {
+0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
+
+/* ═══════════════ SIDE MENU ═══════════════ */
+#menuOverlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.5);
+z-index: 9995;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+}
+#menuOverlay.open { opacity: 1; visibility: visible; }
+#sideMenu {
+position: fixed;
+top: 0; right: -320px;
+width: 300px;
+height: 100vh;
+background: var(--bg-secondary);
+z-index: 9996;
+transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+display: flex;
+flex-direction: column;
+box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+overflow-y: auto;
+}
+#sideMenu.open { right: 0; }
+.menu-header {
+padding: 60px 25px 25px;
+background: var(--gradient-main);
+}
+.menu-header h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
+.menu-header p { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+.menu-items { padding: 20px 15px; flex: 1; }
+.menu-item {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 18px;
+border-radius: 12px;
+cursor: pointer;
+transition: all 0.3s;
+margin-bottom: 8px;
+font-weight: 600;
+font-size: 0.95rem;
+color: var(--text-secondary);
+border: 1px solid transparent;
+}
+.menu-item:hover { background: var(--bg-card); border-color: var(--border-color); color: var(--text-primary); }
+.menu-item .mi-icon { font-size: 1.3rem; width: 35px; text-align: center; }
+.menu-close {
+position: absolute;
+top: 15px; left: 15px;
+width: 40px; height: 40px;
+border-radius: 50%;
+background: rgba(255,255,255,0.2);
+border: none;
+color: #fff;
+font-size: 1.2rem;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* ═══════════════ SCROLL TOP ═══════════════ */
+#scrollTopBtn {
+position: fixed;
+bottom: calc(var(--nav-height) + 20px);
+left: 20px;
+width: 48px;
+height: 48px;
+border-radius: 50%;
+background: var(--scroll-btn-bg);
+color: #fff;
+border: none;
+cursor: pointer;
+font-size: 1.2rem;
+z-index: 9998;
+opacity: 0;
+visibility: hidden;
+transition: all 0.4s ease;
+box-shadow: 0 4px 15px var(--shadow-color);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+#scrollTopBtn.visible { opacity: 1; visibility: visible; }
+
+/* ═══════════════ BOTTOM NAV ═══════════════ */
+#bottomNav {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+height: var(--nav-height);
+background: var(--bg-secondary);
+border-top: 1px solid var(--border-color);
+display: flex;
+align-items: center;
+justify-content: space-around;
+z-index: 9994;
+backdrop-filter: blur(20px);
+padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 4px;
+cursor: pointer;
+padding: 8px 12px;
+border-radius: 12px;
+transition: all 0.3s;
+min-width: 55px;
+}
+.nav-item.active { background: rgba(124,92,252,0.15); }
+.nav-item .nav-icon { font-size: 1.4rem; }
+.nav-item .nav-label { font-size: 0.65rem; font-weight: 600; color: var(--text-muted); }
+.nav-item.active .nav-label { color: var(--accent-2); }
+
+/* ═══════════════ CONTAINER ═══════════════ */
+.container {
+max-width: 900px;
+margin: 0 auto;
+padding: 75px 15px 20px;
+position: relative;
+z-index: 1;
+}
+
+/* ═══════════════ HERO SECTION ═══════════════ */
+.hero-section {
+text-align: center;
+margin-bottom: 40px;
+padding: 30px 15px;
+}
+.hero-section h1 {
+font-size: 2rem;
+font-weight: 900;
+background: var(--gradient-header);
+background-size: 300%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: gradientShift 4s ease infinite;
+margin-bottom: 10px;
+line-height: 1.4;
+}
+@keyframes gradientShift {
+0%,100% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+}
+.hero-section .subtitle { font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; }
+.hero-section .badge {
+display: inline-block;
+background: var(--gradient-main);
+color: #fff;
+padding: 5px 18px;
+border-radius: 50px;
+font-size: 0.8rem;
+font-weight: 700;
+margin-top: 12px;
+}
+.student-welcome {
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 16px;
+padding: 15px 20px;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.student-welcome .sw-icon { font-size: 1.8rem; }
+.student-welcome .sw-text h3 { font-size: 1rem; font-weight: 700; color: var(--accent-1); }
+.student-welcome .sw-text p { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* ═══════════════ IMAGE PLACEHOLDERS ═══════════════ */
+.img-placeholder {
+width: 100%;
+overflow: hidden;
+border-radius: 16px;
+margin-bottom: 20px;
+border: 1px solid var(--border-color);
+background: var(--bg-card);
+}
+.img-placeholder-hero { height: 200px; }
+.img-placeholder-card { height: 160px; }
+.img-placeholder-thumb { height: 100px; }
+.img-placeholder-wide { height: 180px; }
+.img-placeholder img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+opacity: 0.7;
+filter: blur(2px);
+}
+
+/* ═══════════════ SECTION ═══════════════ */
+.section {
+margin-bottom: 45px;
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.6s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+.section-header {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 20px;
+padding: 18px 20px;
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+border: 1px solid var(--border-color);
+border-radius: 16px;
+border-right: 5px solid var(--accent-2);
+box-shadow: 0 4px 20px var(--shadow-color);
+transition: all 0.4s;
+}
+.section-header:hover { border-color: var(--accent-1); box-shadow: 0 0 25px var(--border-glow); }
+.section-icon {
+font-size: 1.6rem;
+width: 48px; height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--gradient-main);
+border-radius: 12px;
+flex-shrink: 0;
+}
+.section-header h2 { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); }
+
+/* ═══════════════ CARD ═══════════════ */
+.card {
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+border: 1px solid var(--border-color);
+border-radius: 16px;
+padding: 20px;
+margin-bottom: 18px;
+transition: all 0.4s ease;
+box-shadow: 0 4px 15px var(--shadow-color);
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--shadow-color); border-color: var(--accent-2); }
+.card h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent-1); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.card p, .card li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.9; }
+.card ul, .card ol { padding-right: 22px; margin-top: 8px; }
+.card li { margin-bottom: 6px; }
+
+/* ═══════════════ DEF CARD ═══════════════ */
+.def-card {
+background: linear-gradient(135deg,rgba(124,92,252,0.15),rgba(0,212,170,0.1));
+border-right: 4px solid var(--accent-2);
+border-radius: 14px;
+padding: 18px 20px;
+margin-bottom: 18px;
+transition: all 0.4s;
+}
+.def-card .def-label {
+display: inline-block;
+background: var(--gradient-main);
+color: #fff;
+padding: 3px 12px;
+border-radius: 8px;
+font-size: 0.75rem;
+font-weight: 700;
+margin-bottom: 8px;
+}
+.def-card .def-term { font-size: 1rem; font-weight: 700; color: var(--accent-4); margin-bottom: 5px; }
+.def-card .def-text { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ═══════════════ INFO CARD ═══════════════ */
+.info-card {
+background: linear-gradient(135deg,rgba(255,107,157,0.1),rgba(255,217,61,0.1));
+border-right: 4px solid var(--accent-3);
+border-radius: 14px;
+padding: 18px 20px;
+margin-bottom: 18px;
+}
+.info-card .info-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.info-card h4 { color: var(--accent-3); font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+.info-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ═══════════════ EXPLAIN CARD ═══════════════ */
+.explain-card {
+background: linear-gradient(135deg,rgba(0,212,170,0.1),rgba(78,205,196,0.1));
+border-right: 4px solid var(--accent-5);
+border-radius: 14px;
+padding: 18px 20px;
+margin-bottom: 18px;
+}
+.explain-card h4 { color: var(--accent-5); font-weight: 700; margin-bottom: 8px; font-size: 0.95rem; }
+.explain-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ═══════════════ STAT CARDS ═══════════════ */
+.stat-cards {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 12px;
+margin-bottom: 18px;
+}
+.stat-card {
+background: var(--bg-card);
+border: 1px solid var(--border-color);
+border-radius: 12px;
+padding: 15px 10px;
+text-align: center;
+transition: all 0.4s;
+}
+.stat-card:hover { transform: translateY(-3px); border-color: var(--accent-1); }
+.stat-card .stat-number { font-size: 1.4rem; font-weight: 900; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat-card .stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
+
+/* ═══════════════ TABLE ═══════════════ */
+.table-wrapper {
+overflow-x: auto;
+margin-bottom: 18px;
+border-radius: 14px;
+border: 1px solid var(--border-color);
+}
+.comp-table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
+.comp-table th { background: var(--gradient-main); color: #fff; padding: 12px 15px; font-weight: 700; font-size: 0.85rem; text-align: center; }
+.comp-table td { padding: 10px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.85rem; text-align: center; }
+.comp-table tr:hover td { background: rgba(124,92,252,0.08); }
+
+/* ═══════════════ NUMBERED CARD ═══════════════ */
+.numbered-card { counter-reset: item; }
+.numbered-card .n-item {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 10px;
+padding: 10px 12px;
+background: rgba(124,92,252,0.05);
+border-radius: 10px;
+transition: all 0.3s;
+}
+.numbered-card .n-item:hover { background: rgba(124,92,252,0.1); }
+.numbered-card .n-num {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 26px; height: 26px;
+min-width: 26px;
+background: var(--gradient-main);
+border-radius: 50%;
+color: #fff;
+font-size: 0.75rem;
+font-weight: 700;
+margin-top: 3px;
+}
+.numbered-card .n-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; }
+
+/* ═══════════════ HIGHLIGHTS ═══════════════ */
+.highlight { color: var(--accent-1); font-weight: 700; }
+.highlight-2 { color: var(--accent-3); font-weight: 700; }
+.highlight-3 { color: var(--accent-4); font-weight: 700; }
+
+/* ═══════════════ SUB HEADER ═══════════════ */
+.sub-header {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 12px;
+padding: 10px 15px;
+background: rgba(124,92,252,0.08);
+border-radius: 10px;
+border-right: 3px solid var(--accent-1);
+}
+.sub-header h3 { font-size: 1rem; font-weight: 700; color: var(--accent-1); margin: 0; }
+.sub-header .sub-icon { font-size: 1.2rem; }
+
+/* ═══════════════ DIVIDER ═══════════════ */
+.divider {
+height: 2px;
+background: var(--gradient-main);
+border-radius: 2px;
+margin: 35px 0;
+opacity: 0.3;
+}
+
+/* ═══════════════ QUIZ ═══════════════ */
+.quiz-container { margin-top: 25px; margin-bottom: 35px; }
+.quiz-title {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 1rem;
+font-weight: 700;
+color: var(--accent-4);
+margin-bottom: 18px;
+padding: 12px 16px;
+background: linear-gradient(135deg,rgba(255,217,61,0.1),rgba(255,107,157,0.1));
+border-radius: 10px;
+border-right: 4px solid var(--accent-4);
+}
+.question-card {
+background: var(--bg-card);
+backdrop-filter: var(--card-blur);
+border: 1px solid var(--border-color);
+border-radius: 14px;
+padding: 20px;
+margin-bottom: 16px;
+transition: all 0.4s;
+}
+.question-card.answered { pointer-events: none; }
+.question-card.correct { border-color: var(--success); box-shadow: 0 0 20px rgba(0,230,118,0.2); }
+.question-card.wrong { border-color: var(--error); box-shadow: 0 0 20px rgba(255,82,82,0.2); }
+.question-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background: var(--gradient-main);
+color: #fff;
+width: 28px; height: 28px;
+border-radius: 50%;
+font-size: 0.8rem;
+font-weight: 700;
+margin-left: 8px;
+flex-shrink: 0;
+}
+.question-text { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 14px; display: flex; align-items: flex-start; gap: 8px; }
+.options { display: grid; gap: 9px; }
+.option-btn {
+display: block;
+width: 100%;
+padding: 11px 16px;
+background: var(--bg-card-solid);
+border: 2px solid var(--border-color);
+border-radius: 10px;
+color: var(--text-primary);
+font-family: inherit;
+font-size: 0.9rem;
+font-weight: 600;
+cursor: pointer;
+text-align: right;
+transition: all 0.3s;
+}
+.option-btn:hover:not(.disabled) { border-color: var(--accent-2); background: rgba(124,92,252,0.1); transform: translateX(-4px); }
+.option-btn.selected-correct { background: rgba(0,230,118,0.15); border-color: var(--success); color: var(--success); }
+.option-btn.selected-wrong { background: rgba(255,82,82,0.15); border-color: var(--error); color: var(--error); }
+.option-btn.show-correct { background: rgba(0,230,118,0.1); border-color: var(--success); }
+.option-btn.disabled { cursor: not-allowed; opacity: 0.6; }
+.tf-options { display: flex; gap: 12px; }
+.tf-btn {
+flex: 1;
+padding: 11px 16px;
+border: 2px solid var(--border-color);
+border-radius: 10px;
+background: var(--bg-card-solid);
+color: var(--text-primary);
+font-family: inherit;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
+text-align: center;
+transition: all 0.3s;
+}
+.tf-btn:hover:not(.disabled) { border-color: var(--accent-2); transform: translateY(-2px); }
+.tf-btn.selected-correct { background: rgba(0,230,118,0.15); border-color: var(--success); color: var(--success); }
+.tf-btn.selected-wrong { background: rgba(255,82,82,0.15); border-color: var(--error); color: var(--error); }
+.tf-btn.show-correct { background: rgba(0,230,118,0.1); border-color: var(--success); }
+.tf-btn.disabled { cursor: not-allowed; opacity: 0.6; }
+.feedback {
+margin-top: 10px;
+padding: 8px 14px;
+border-radius: 8px;
+font-weight: 600;
+font-size: 0.85rem;
+display: none;
+}
+.feedback.correct-feedback { display: block; background: rgba(0,230,118,0.1); color: var(--success); border: 1px solid rgba(0,230,118,0.3); }
+.feedback.wrong-feedback { display: block; background: rgba(255,82,82,0.1); color: var(--error); border: 1px solid rgba(255,82,82,0.3); }
+
+/* ═══════════════ RESULT ═══════════════ */
+.result-container { text-align: center; padding: 35px 20px; display: none; }
+.result-circle {
+width: 160px; height: 160px;
+border-radius: 50%;
+border: 8px solid var(--border-color);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 auto 20px;
+}
+.result-circle .percentage { font-size: 2rem; font-weight: 900; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.result-circle .label { font-size: 0.8rem; color: var(--text-muted); }
+.result-name { font-size: 1.1rem; color: var(--accent-4); font-weight: 700; margin-bottom: 8px; }
+.result-message { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.result-details { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 22px; }
+.reset-btn {
+display: inline-block;
+padding: 12px 30px;
+background: var(--gradient-main);
+color: #fff;
+border: none;
+border-radius: 50px;
+font-family: inherit;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+margin: 5px;
+}
+.reset-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--border-glow); }
+.change-name-btn {
+display: inline-block;
+padding: 12px 30px;
+background: transparent;
+color: var(--accent-2);
+border: 2px solid var(--accent-2);
+border-radius: 50px;
+font-family: inherit;
+font-size: 0.95rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+margin: 5px;
+}
+
+/* ═══════════════ DEVTOOLS OVERLAY ═══════════════ */
+#devtoolsBlock {
+display: none;
+position: fixed;
+inset: 0;
+background: #000;
+z-index: 9999999;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+color: #ff5252;
+font-size: 1.5rem;
+font-weight: 800;
+text-align: center;
+padding: 30px;
+}
+
+@media (max-width: 480px) {
+.stat-cards { grid-template-columns: 1fr 1fr; }
+.hero-section h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Desktop Block -->
+<div id="desktopBlock">
+  <div class="block-icon">📱</div>
+  <h1>هذه الصفحة للموبايل فقط</h1>
+  <p>يرجى فتح هذه الصفحة من هاتفك المحمول للحصول على أفضل تجربة تعليمية</p>
+  <p style="margin-top:15px;color:#ffd93d;font-size:1.3rem;">📵 غير متاح على الكمبيوتر</p>
+</div>
+
+<!-- DevTools Block -->
+<div id="devtoolsBlock">
+  🚫<br>تم اكتشاف أدوات المطور<br>
+  <span style="font-size:1rem;color:#fff;font-weight:400;display:block;margin-top:10px;">أعد تحميل الصفحة للمتابعة</span>
+</div>
+
+<!-- Watermark -->
+<div id="watermark"></div>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Progress Bar -->
+<div id="progressBar"></div>
+
+<!-- Access Screen -->
+<div id="accessScreen">
+  <div class="access-box">
+    <div class="access-logo">🔐</div>
+    <h2>كود الدخول مطلوب</h2>
+    <p>أدخل كود الدخول الخاص بك للوصول إلى المحتوى التعليمي</p>
+    <input type="text" id="accessInput" class="access-input" placeholder="MrGaber-XXXX" maxlength="12" autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="access-btn" onclick="checkAccess()">دخول ← </button>
+    <div class="access-error" id="accessError">❌ كود خاطئ! يرجى المحاولة مرة أخرى</div>
+    <div class="access-attempts" id="accessAttempts"></div>
+  </div>
+</div>
+
+<!-- Name Screen -->
+<div id="nameScreen" style="display:none">
+  <div class="name-box">
+    <h2>مرحباً بك! 👋</h2>
+    <p>أدخل اسمك لبدء رحلتك التعليمية في درس ثورة 23 يوليو 1952م</p>
+    <input type="text" id="nameInput" class="name-input" placeholder="اكتب اسمك هنا..." maxlength="40" autocomplete="off">
+    <button class="name-btn" onclick="submitName()">ابدأ التعلم →</button>
+    <div class="access-error" id="nameError">⚠️ يرجى كتابة اسمك</div>
+  </div>
+</div>
+
+<!-- Main App -->
+<div id="mainApp">
+
+<!-- Top Bar -->
+<div id="topBar">
+  <div id="scoreCounter">⭐ <span id="scoreValue">0</span></div>
+  <div id="studentNameDisplay" onclick="showChangeNameOption()">👤 ---</div>
+  <button id="themeToggle" title="تبديل الوضع">🌙</button>
+</div>
+
+<!-- Side Menu Overlay -->
+<div id="menuOverlay" onclick="closeMenu()"></div>
+
+<!-- Side Menu -->
+<div id="sideMenu">
+  <button class="menu-close" onclick="closeMenu()">✕</button>
+  <div class="menu-header">
+    <h3>📚 درس تفاعلي</h3>
+    <p>ثورة 23 يوليو 1952م</p>
+  </div>
+  <div class="menu-items">
+    <div class="menu-item" onclick="scrollToSection('section1');closeMenu()"><span class="mi-icon">🔥</span> عوامل قيام الثورة</div>
+    <div class="menu-item" onclick="scrollToSection('section2');closeMenu()"><span class="mi-icon">🎯</span> أهداف الثورة</div>
+    <div class="menu-item" onclick="scrollToSection('section3');closeMenu()"><span class="mi-icon">⚔️</span> أحداث الثورة</div>
+    <div class="menu-item" onclick="scrollToSection('section4');closeMenu()"><span class="mi-icon">📜</span> آراء المؤرخين</div>
+    <div class="menu-item" onclick="scrollToSection('section5');closeMenu()"><span class="mi-icon">🏆</span> إنجازات الثورة</div>
+    <div class="menu-item" onclick="scrollToSection('finalExam');closeMenu()"><span class="mi-icon">🏅</span> الاختبار النهائي</div>
+    <div class="menu-item" onclick="showChangeNameOption();closeMenu()"><span class="mi-icon">✏️</span> تغيير الاسم</div>
+  </div>
+</div>
+
+<!-- Scroll Top -->
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
+
+<!-- Main Container -->
+<div class="container">
+
+<!-- Hero -->
+<div class="hero-section section visible">
+  <div class="student-welcome">
+    <div class="sw-icon">🎓</div>
+    <div class="sw-text">
+      <h3 id="welcomeStudentName">أهلاً بك!</h3>
+      <p>الدراسات الاجتماعية - الصف الثالث الإعدادي</p>
+    </div>
+  </div>
+  <h1>ثورة 23 يوليو 1952م</h1>
+  <p class="subtitle">الدرس الأول - الدراسات الاجتماعية - الصف الثالث الإعدادي</p>
+  <span class="badge">📚 العام الدراسي 2025 / 2026</span>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="img-placeholder img-placeholder-hero section">
+  <img src="https://nasseryouthmovement.net/uploads/images/2023/07/image_750x_64bc5aee44578.jpg" alt="ثورة يوليو">
+</div>
+
+<!-- ══════════════ SECTION 1 ══════════════ -->
+<div class="section" id="section1">
+<div class="section-header">
+  <div class="section-icon">🔥</div>
+  <h2>أولاً: عوامل قيام ثورة 23 يوليو 1952م</h2>
+</div>
+
+<!-- Card 1 -->
+<div class="card">
+  <h3>1️⃣ استمرار الاحتلال البريطاني وتدخله في شئون مصر الداخلية</h3>
+  <p><span class="highlight">معاهدة 1936م</span> لم تحقق الاستقلال الحقيقي لمصر، حيث ظل الاحتلال البريطاني قائماً وتدخل في شئون مصر الداخلية.</p>
+  <div class="info-card" style="margin-top:14px">
+    <div class="info-icon">🔍</div>
+    <h4>دليل تاريخي</h4>
+    <p>قامت القوات البريطانية بحصار قصر عابدين في <span class="highlight-2">فبراير 1942م</span> لإجبار الملك فاروق على تعيين <span class="highlight">مصطفى النحاس باشا</span> رئيساً للحكومة المصرية.</p>
+  </div>
+  <div class="explain-card">
+    <h4>بم تفسر: سقوط ادعاءات بريطانيا باستقلال مصر عقب حادث فبراير 1942م؟ 🔎</h4>
+    <p>لأن بريطانيا حاصرت قصر عابدين وأجبرت الملك فاروق على تعيين رئيس الحكومة الذي تريده، مما يثبت أن مصر لم تكن مستقلة فعلياً وأن معاهدة 1936م لم تحقق الاستقلال الحقيقي.</p>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+  <h3>2️⃣ هزيمة الجيش المصري في حرب فلسطين 1948م</h3>
+  <p>انهزم الجيش المصري في حرب فلسطين عام 1948م وذلك بسبب:</p>
+  <ul>
+    <li>دعم <span class="highlight">الولايات المتحدة الأمريكية</span> و<span class="highlight">بريطانيا</span> لإسرائيل.</li>
+    <li><span class="highlight-2">عدم استعداد الجيش المصري والعربي عسكرياً</span> للحرب.</li>
+  </ul>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: هزيمة الجيش المصري في حرب فلسطين 1948م؟ 🔎</h4>
+    <p>بسبب دعم الولايات المتحدة الأمريكية وبريطانيا لإسرائيل، وعدم استعداد الجيش المصري والعربي عسكرياً للحرب.</p>
+  </div>
+</div>
+
+<!-- CARD IMAGE -->
+<div class="img-placeholder img-placeholder-card section">
+  <img src="https://manassa.news/sites/default/files/styles/lead_image/public/photobank/94949944_1695_040033.jpg.webp?itok=oQwb9v6H" alt="حرب فلسطين">
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+  <h3>3️⃣ فساد النظام الملكي</h3>
+  <p>عانت مصر من فساد النظام الملكي بسبب:</p>
+  <ul>
+    <li><span class="highlight-2">استبداد الملك فاروق</span> بالحكم.</li>
+    <li><span class="highlight-2">انتشار الرشاوى</span> كما حدث في <span class="highlight">صفقة الأسلحة الفاسدة</span>.</li>
+  </ul>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: فساد النظام الملكي قبل ثورة 23 يوليو 1952م؟ 🔎</h4>
+    <p>بسبب استبداد الملك فاروق بالحكم، وانتشار الرشاوى كما حدث في صفقة الأسلحة الفاسدة.</p>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+  <h3>4️⃣ عدم وجود حياة ديمقراطية سليمة</h3>
+  <p>لم تكن هناك حياة ديمقراطية سليمة في مصر بسبب:</p>
+  <ul>
+    <li><span class="highlight-2">خضوع مصر للاحتلال البريطاني</span>.</li>
+    <li><span class="highlight-2">فساد النظام الملكي</span>.</li>
+    <li><span class="highlight-2">فساد الأحزاب السياسية</span> وزيادة الصراع بينهم من أجل الوصول إلى الحكم.</li>
+  </ul>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: عدم وجود حياة ديمقراطية سليمة في مصر قبل ثورة 1952م؟ 🔎</h4>
+    <p>بسبب خضوع مصر للاحتلال البريطاني، وفساد النظام الملكي، وفساد الأحزاب السياسية وزيادة الصراع بينهم من أجل الوصول إلى الحكم.</p>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <h3>5️⃣ تدهور الحياة الاقتصادية لمصر</h3>
+  <p>أدى توقيع <span class="highlight">معاهدة 1936م</span> إلى:</p>
+  <ul>
+    <li>جعل مصر <span class="highlight-2">ميداناً لمعارك الحرب العالمية الثانية</span>.</li>
+    <li><span class="highlight-2">استنزاف موارد مصر الاقتصادية</span> لخدمة بريطانيا وحلفائها.</li>
+  </ul>
+  <div class="info-card" style="margin-top:14px">
+    <div class="info-icon">🔥</div>
+    <h4>مما أدى إلى</h4>
+    <p>✅ زيادة معاناة أفراد الشعب<br>✅ إرهاق الاقتصاد المصري</p>
+  </div>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+  <h3>6️⃣ سوء الأحوال الاجتماعية</h3>
+  <p>ساءت الأحوال الاجتماعية في مصر بسبب:</p>
+  <ul>
+    <li><span class="highlight-2">الصراعات السياسية بين الأحزاب</span> والتي أدت إلى عدم وجود سياسات واضحة للإصلاح الاجتماعي.</li>
+    <li>ظاهرة <span class="highlight">الإقطاع</span> (سوء توزيع ملكية الأرض الزراعية) مما جعل فئة صغيرة تملك وتستبد.</li>
+  </ul>
+  <div class="info-card" style="margin-top:14px">
+    <div class="info-icon">🔥</div>
+    <h4>مما أدى إلى</h4>
+    <p>انتشار <span class="highlight-2">الجهل والفقر والمرض</span></p>
+  </div>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: سوء الأحوال الاجتماعية في مصر قبل ثورة 1952م؟ 🔎</h4>
+    <p>بسبب الصراعات السياسية بين الأحزاب وعدم وجود سياسات واضحة للإصلاح الاجتماعي، وظاهرة الإقطاع (سوء توزيع ملكية الأرض الزراعية).</p>
+  </div>
+</div>
+
+<div class="def-card">
+  <span class="def-label">📖 تعريف</span>
+  <div class="def-term">الإقطاع</div>
+  <div class="def-text">سوء توزيع ملكية الأرض الزراعية، حيث يمتلك عدد قليل من الأشخاص مساحات شاسعة من الأراضي بينما لا يملك غالبية الفلاحين شيئاً.</div>
+</div>
+
+<!-- Table -->
+<div class="table-wrapper">
+<table class="comp-table">
+<thead><tr><th>م</th><th>العامل</th><th>التفسير</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>استمرار الاحتلال البريطاني</td><td>معاهدة 1936م لم تحقق الاستقلال الحقيقي</td></tr>
+<tr><td>2</td><td>هزيمة حرب فلسطين 1948م</td><td>دعم أمريكا وبريطانيا لإسرائيل + عدم استعداد الجيش</td></tr>
+<tr><td>3</td><td>فساد النظام الملكي</td><td>استبداد الملك فاروق + انتشار الرشاوى</td></tr>
+<tr><td>4</td><td>عدم وجود ديمقراطية سليمة</td><td>الاحتلال + فساد الملك + فساد الأحزاب</td></tr>
+<tr><td>5</td><td>تدهور الاقتصاد</td><td>مصر ميدان للحرب العالمية + استنزاف الموارد</td></tr>
+<tr><td>6</td><td>سوء الأحوال الاجتماعية</td><td>الصراعات السياسية + ظاهرة الإقطاع</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Quiz 1 -->
+<div class="quiz-container">
+<div class="quiz-title">🎯 اختبر نفسك: عوامل قيام الثورة</div>
+
+<div class="question-card" id="q1">
+  <div class="question-text"><span class="question-number">1</span><span>حاصرت القوات البريطانية قصر عابدين في فبراير 1942م لإجبار الملك فاروق على تعيين ........... رئيساً للحكومة.</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q1',true)">مصطفى النحاس باشا</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q1',false)">سعد زغلول</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q1',false)">أحمد عرابي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q1',false)">محمد نجيب</button>
+  </div>
+  <div class="feedback" id="q1-feedback"></div>
+</div>
+
+<div class="question-card" id="q2">
+  <div class="question-text"><span class="question-number">2</span><span>من أسباب هزيمة الجيش المصري في حرب فلسطين 1948م عدم استعداد الجيش المصري والعربي عسكرياً للحرب.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q2',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q2',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q2-feedback"></div>
+</div>
+
+<div class="question-card" id="q3">
+  <div class="question-text"><span class="question-number">3</span><span>أصبحت مصر ميداناً لمعارك الحرب العالمية الثانية نتيجة ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q3',false)">حصار قصر عابدين</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q3',true)">معاهدة 1936م</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q3',false)">صفقة الأسلحة الفاسدة</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q3',false)">تعدد الأحزاب</button>
+  </div>
+  <div class="feedback" id="q3-feedback"></div>
+</div>
+
+<div class="question-card" id="q4">
+  <div class="question-text"><span class="question-number">4</span><span>العامل المشترك بين سوء الأوضاع الاجتماعية واختفاء الحياة الديمقراطية السليمة قبل الثورة هو ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q4',false)">انتشار الإقطاع</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q4',false)">تدهور الاقتصاد</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q4',false)">توقيع معاهدة 1936م</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q4',true)">الصراع بين الأحزاب</button>
+  </div>
+  <div class="feedback" id="q4-feedback"></div>
+</div>
+
+<div class="question-card" id="q5">
+  <div class="question-text"><span class="question-number">5</span><span>حققت معاهدة 1936م الاستقلال الحقيقي لمصر.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q5',false)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q5',true)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q5-feedback"></div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 2 ══════════════ -->
+<div class="section" id="section2">
+<div class="section-header">
+  <div class="section-icon">🎯</div>
+  <h2>ثانياً: أهداف ثورة 23 يوليو 1952م</h2>
+</div>
+
+<div class="card">
+  <h3>أهداف الثورة - الإقامة (البناء) 🏗️</h3>
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text">إقامة <span class="highlight">جيش وطني قوي</span></span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text">إقامة <span class="highlight">عدالة اجتماعية</span></span></div>
+    <div class="n-item"><span class="n-num">3</span><span class="n-text">إقامة <span class="highlight">حياة ديمقراطية سليمة</span></span></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>أهداف الثورة - القضاء على 🚫</h3>
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text">القضاء على <span class="highlight-2">الاستعمار وأعوانه</span></span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text">القضاء على <span class="highlight-2">الإقطاع</span></span></div>
+    <div class="n-item"><span class="n-num">3</span><span class="n-text">القضاء على <span class="highlight-2">الاحتكار وسيطرة رأس المال على الحكم</span></span></div>
+  </div>
+</div>
+
+<!-- THUMBNAIL IMAGE -->
+<div class="img-placeholder img-placeholder-thumb section">
+  <img src="https://nasseryouthmovement.net/uploads/images/2023/07/image_750x_64c44976abe84.jpg" alt="أهداف الثورة">
+</div>
+
+<div class="table-wrapper">
+<table class="comp-table">
+<thead><tr><th>الإقامة (البناء)</th><th>القضاء على</th></tr></thead>
+<tbody>
+<tr><td>جيش وطني قوي</td><td>الاستعمار وأعوانه</td></tr>
+<tr><td>عدالة اجتماعية</td><td>الإقطاع</td></tr>
+<tr><td>حياة ديمقراطية سليمة</td><td>الاحتكار وسيطرة رأس المال</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Quiz 2 -->
+<div class="quiz-container">
+<div class="quiz-title">🎯 اختبر نفسك: أهداف الثورة</div>
+
+<div class="question-card" id="q6">
+  <div class="question-text"><span class="question-number">1</span><span>من أهداف ثورة 23 يوليو 1952م القضاء على ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q6',false)">الجيش الوطني</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q6',true)">الإقطاع</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q6',false)">الديمقراطية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q6',false)">العدالة الاجتماعية</button>
+  </div>
+  <div class="feedback" id="q6-feedback"></div>
+</div>
+
+<div class="question-card" id="q7">
+  <div class="question-text"><span class="question-number">2</span><span>إقامة حياة ديمقراطية سليمة من أهداف ثورة 23 يوليو 1952م.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q7',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q7',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q7-feedback"></div>
+</div>
+
+<div class="question-card" id="q8">
+  <div class="question-text"><span class="question-number">3</span><span>تحقق الهدف الأول للثورة (القضاء على الاستعمار) عن طريق ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q8',false)">إلغاء دستور 1923</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q8',false)">قانون الإصلاح الزراعي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q8',true)">توقيع اتفاقية الجلاء</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q8',false)">تأميم قناة السويس</button>
+  </div>
+  <div class="feedback" id="q8-feedback"></div>
+</div>
+
+<div class="question-card" id="q9">
+  <div class="question-text"><span class="question-number">4</span><span>من أهداف الثورة في مجال البناء (الإقامة) القضاء على الاحتكار.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q9',false)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q9',true)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q9-feedback"></div>
+</div>
+
+<div class="question-card" id="q10">
+  <div class="question-text"><span class="question-number">5</span><span>كم عدد أهداف ثورة 23 يوليو 1952م إجمالاً؟</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q10',false)">4 أهداف</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q10',false)">5 أهداف</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q10',true)">6 أهداف</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q10',false)">7 أهداف</button>
+  </div>
+  <div class="feedback" id="q10-feedback"></div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 3 ══════════════ -->
+<div class="section" id="section3">
+<div class="section-header">
+  <div class="section-icon">⚔️</div>
+  <h2>ثالثاً: أحداث ثورة 23 يوليو 1952م</h2>
+</div>
+
+<div class="card">
+  <h3>1️⃣ تنظيم الضباط الأحرار</h3>
+  <div class="def-card">
+    <span class="def-label">📖 تعريف</span>
+    <div class="def-term">تنظيم الضباط الأحرار</div>
+    <div class="def-text">تنظيم أسسه <span class="highlight">جمال عبد الناصر</span> وتكون من مجموعة من ضباط الجيش المصري الذين نظموا صفوفهم في سرية تامة بهدف القيام بثورة للقضاء على الفساد وتحرير واستقلال مصر من الاحتلال البريطاني.</div>
+  </div>
+  <p>في <span class="highlight">صباح يوم 23 يوليو 1952م</span> تحرك الضباط الأحرار وسيطروا على المواقع المهمة في <span class="highlight-2">القاهرة والإسكندرية</span> واعتقلوا كبار الضباط والمسؤولين القدامى في الجيش، وبالتالي أصبحت القاهرة بالكامل تحت سيطرة قوات الثورة.</p>
+</div>
+
+<div class="card">
+  <h3>2️⃣ بيان الثورة</h3>
+  <p>في <span class="highlight">الساعة السابعة والنصف صباح يوم 23 يوليو 1952م</span> أُذيع أول بيان للثورة من <span class="highlight-2">دار الإذاعة المصرية</span> باسم <span class="highlight">اللواء محمد نجيب</span> القائد العام للقوات المسلحة بصوت <span class="highlight-3">محمد أنور السادات</span>.</p>
+  <p style="margin-top:8px">وبموجب هذا البيان أصبح اللواء محمد نجيب مسيطراً على جميع قطاعات الجيش المصري.</p>
+  <div class="stat-cards" style="margin-top:14px">
+    <div class="stat-card"><div class="stat-number">7:30</div><div class="stat-label">وقت البيان - صباحاً</div></div>
+    <div class="stat-card"><div class="stat-number">23</div><div class="stat-label">يوليو - تاريخ الثورة</div></div>
+    <div class="stat-card"><div class="stat-number">1952</div><div class="stat-label">سنة الثورة</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>3️⃣ مطالب الثورة من الملك فاروق</h3>
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text">التنازل عن العرش لابنه <span class="highlight">أحمد فؤاد الثاني</span> الذي كان طفلاً.</span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text">مغادرة البلاد قبل <span class="highlight-2">الساعة السادسة من مساء يوم 26 يوليو 1952م</span>.</span></div>
+  </div>
+  <p style="margin-top:10px">وافق الملك فاروق على مغادرة البلاد هو وأسرته قبل الموعد المحدد.</p>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: موافقة الملك فاروق على مغادرة البلاد قبل الموعد المحدد؟ 🔎</h4>
+    <p>لأنه أدرك أن الجيش والشعب يكرهان حكمه بالإضافة إلى تخلي الإنجليز عنه.</p>
+  </div>
+</div>
+
+<!-- WIDE IMAGE -->
+<div class="img-placeholder img-placeholder-wide section">
+  <img src="https://media.elwatannews.com/media/img/mediaarc/large/560154851626980576.jpg" alt="أحداث الثورة">
+</div>
+
+<!-- Quiz 3 -->
+<div class="quiz-container">
+<div class="quiz-title">🎯 اختبر نفسك: أحداث الثورة</div>
+
+<div class="question-card" id="q11">
+  <div class="question-text"><span class="question-number">1</span><span>مؤسس تنظيم الضباط الأحرار هو ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q11',false)">محمد نجيب</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q11',true)">جمال عبد الناصر</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q11',false)">أنور السادات</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q11',false)">مصطفى النحاس</button>
+  </div>
+  <div class="feedback" id="q11-feedback"></div>
+</div>
+
+<div class="question-card" id="q12">
+  <div class="question-text"><span class="question-number">2</span><span>أذاع محمد أنور السادات البيان الأول لثورة 23 يوليو 1952م من دار الإذاعة المصرية.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q12',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q12',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q12-feedback"></div>
+</div>
+
+<div class="question-card" id="q13">
+  <div class="question-text"><span class="question-number">3</span><span>سيطر ........... على جميع قطاعات الجيش المصري بعد إذاعة البيان الأول لثورة 23 يوليو 1952م.</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q13',true)">محمد نجيب</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q13',false)">جمال عبد الناصر</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q13',false)">أنور السادات</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q13',false)">مصطفى النحاس</button>
+  </div>
+  <div class="feedback" id="q13-feedback"></div>
+</div>
+
+<div class="question-card" id="q14">
+  <div class="question-text"><span class="question-number">4</span><span>تنازل الملك فاروق عن العرش لابنه أحمد فؤاد الثاني.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q14',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q14',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q14-feedback"></div>
+</div>
+
+<div class="question-card" id="q15">
+  <div class="question-text"><span class="question-number">5</span><span>بم تفسر: موافقة الملك فاروق على مغادرة البلاد؟</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q15',false)">بسبب خوفه من الجيش فقط</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q15',true)">لأنه أدرك كراهية الجيش والشعب لحكمه وتخلي الإنجليز عنه</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q15',false)">لأنه أراد السفر لأوروبا</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q15',false)">بسبب ضغط الأحزاب السياسية</button>
+  </div>
+  <div class="feedback" id="q15-feedback"></div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 4 ══════════════ -->
+<div class="section" id="section4">
+<div class="section-header">
+  <div class="section-icon">📜</div>
+  <h2>رابعاً: آراء المؤرخين حول ثورة 23 يوليو 1952م</h2>
+</div>
+
+<div class="card">
+  <p>اختلفت الكتابات وتعددت الآراء حول ثورة 23 يوليو 1952م:</p>
+</div>
+
+<div class="card">
+  <h3>1️⃣ الرأي الأول: يرى بعض المؤرخين أنها</h3>
+  <p>تكتسب <span class="highlight">أهمية كبيرة</span> لما تركته من آثار على أغلب الحركات التحررية في المنطقة العربية بشكل خاص وفي العالم بشكل عام، ولما أسهم به قادتها في تأسيس <span class="highlight-2">حركات دولية</span> مثل <span class="highlight">حركة عدم الانحياز والحياد الإيجابي</span>.</p>
+</div>
+
+<div class="card">
+  <h3>2️⃣ الرأي الثاني: يرى مؤرخون آخرون أنها</h3>
+  <p>لم تبدأ عندما تأسس تنظيم الضباط الأحرار أو عندما تحركت قيادة الثورة للسيطرة على مقرات الجيش والإذاعة، إنما كان هذا التحرك <span class="highlight">مكملاً لنضال طويل وممتد</span> لشعب مصر، الذي ثار ضد الفساد والاحتلال وسوء الحكم منذ <span class="highlight-2">الثورة العرابية</span> و<span class="highlight-2">ثورة 1919م</span> وحتى قيام ثورة 23 يوليو 1952م.</p>
+</div>
+
+<div class="def-card">
+  <span class="def-label">📖 تعريف</span>
+  <div class="def-term">حركة عدم الانحياز</div>
+  <div class="def-text">عدم الانضمام لأي من الكتلتين الشرقية أو الغربية خلال فترة الحرب الباردة.</div>
+</div>
+
+<!-- Quiz 4 -->
+<div class="quiz-container">
+<div class="quiz-title">🎯 اختبر نفسك: آراء المؤرخين</div>
+
+<div class="question-card" id="q16">
+  <div class="question-text"><span class="question-number">1</span><span>تكتسب ثورة 1952م أهمية عالمية بسبب ارتباطها بـ ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q16',false)">استقلال الدول العربية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q16',false)">القضاء على الإقطاع</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q16',false)">صفقة الأسلحة الشرقية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q16',true)">حركة عدم الانحياز</button>
+  </div>
+  <div class="feedback" id="q16-feedback"></div>
+</div>
+
+<div class="question-card" id="q17">
+  <div class="question-text"><span class="question-number">2</span><span>يرى بعض المؤرخين أن ثورة يوليو كانت مكملة لنضال طويل بدأ منذ الثورة العرابية.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q17',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q17',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q17-feedback"></div>
+</div>
+
+<div class="question-card" id="q18">
+  <div class="question-text"><span class="question-number">3</span><span>ما المقصود بعدم الانحياز؟</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q18',false)">الانضمام للكتلة الشرقية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q18',false)">الانضمام للكتلة الغربية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q18',true)">عدم الانضمام لأي من الكتلتين الشرقية أو الغربية</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q18',false)">التحالف مع الدول الأفريقية</button>
+  </div>
+  <div class="feedback" id="q18-feedback"></div>
+</div>
+
+<div class="question-card" id="q19">
+  <div class="question-text"><span class="question-number">4</span><span>أسهم قادة ثورة يوليو في تأسيس حركة عدم الانحياز.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q19',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q19',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q19-feedback"></div>
+</div>
+
+<div class="question-card" id="q20">
+  <div class="question-text"><span class="question-number">5</span><span>ثورة 23 يوليو أثرت على الحركات التحررية في المنطقة العربية فقط.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q20',false)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q20',true)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q20-feedback"></div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 5 ══════════════ -->
+<div class="section" id="section5">
+<div class="section-header">
+  <div class="section-icon">🏆</div>
+  <h2>خامساً: إنجازات ثورة 23 يوليو 1952م</h2>
+</div>
+
+<div class="card">
+  <p>نجحت ثورة 23 يوليو 1952م في تحقيق بعض أهدافها في مختلف المجالات:</p>
+</div>
+
+<!-- المجال السياسي -->
+<div class="sub-header"><span class="sub-icon">🏛️</span><h3>1 - المجال السياسي</h3></div>
+<div class="card">
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text">إلغاء <span class="highlight">دستور 1923م</span> في ديسمبر 1952م.</span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text">حل <span class="highlight">الأحزاب السياسية</span> في يناير 1953م.</span></div>
+    <div class="n-item"><span class="n-num">3</span><span class="n-text">إلغاء الملكية وإعلان <span class="highlight">الجمهورية</span> وتعيين اللواء <span class="highlight-2">محمد نجيب</span> أول رئيس لجمهورية مصر العربية في يونيو 1953م.</span></div>
+    <div class="n-item"><span class="n-num">4</span><span class="n-text">توقيع <span class="highlight">اتفاقية الجلاء</span> عن مصر التي تقرر فيها جلاء القوات البريطانية عن مصر خلال 20 شهراً من توقيع الاتفاقية في <span class="highlight-3">أكتوبر 1954م</span>.</span></div>
+    <div class="n-item"><span class="n-num">5</span><span class="n-text">رحيل القوات البريطانية عن مصر بعد احتلال دام <span class="highlight-2">74 عاماً</span>، فأصبح يوم <span class="highlight">18 يونيو 1956م</span> عيداً للجلاء.</span></div>
+    <div class="n-item"><span class="n-num">6</span><span class="n-text">تأميم <span class="highlight">شركة قناة السويس البحرية</span> وأصبحت شركة مصرية بإدارة مصرية في <span class="highlight-3">يوليو 1956م</span>.</span></div>
+  </div>
+</div>
+
+<div class="stat-cards">
+  <div class="stat-card"><div class="stat-number">74</div><div class="stat-label">عاماً مدة الاحتلال</div></div>
+  <div class="stat-card"><div class="stat-number">20</div><div class="stat-label">شهراً مهلة الجلاء</div></div>
+  <div class="stat-card"><div class="stat-number">1956</div><div class="stat-label">عام الجلاء والتأميم</div></div>
+</div>
+
+<div class="def-card">
+  <span class="def-label">📖 تعريف</span>
+  <div class="def-term">اتفاقية الجلاء (1954م)</div>
+  <div class="def-text">اتفاقية تم توقيعها في أكتوبر 1954م تقرر بموجبها جلاء القوات البريطانية عن مصر خلال 20 شهراً.</div>
+</div>
+
+<!-- المجال الاقتصادي -->
+<div class="sub-header"><span class="sub-icon">💰</span><h3>2 - المجال الاقتصادي</h3></div>
+
+<div class="card">
+  <h3>أ- التجارة 📊</h3>
+  <p>اهتمت ثورة يوليو 1952م بالتجارة، حيث تم:</p>
+  <ul>
+    <li>فتح <span class="highlight">أسواق خارجية</span> لتسويق المنتجات المصرية.</li>
+    <li><span class="highlight-2">تمصير البنوك</span> وشركات التأمين وشركات التصدير والاستيراد.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>ب- الزراعة 🌾</h3>
+  <p>اهتمت ثورة يوليو 1952م بالزراعة، حيث تم:</p>
+  <ul>
+    <li>التوسع في <span class="highlight">استصلاح الأراضي الصحراوية</span> لزيادة الرقعة الزراعية.</li>
+    <li>إنشاء <span class="highlight-2">السد العالي</span> وافتتاحه عام 1971م في عهد الرئيس السادات.</li>
+  </ul>
+  <div class="explain-card" style="margin-top:14px">
+    <h4>بم تفسر: إنشاء السد العالي؟ 🔎</h4>
+    <p>بهدف حماية البلاد من خطر الفيضان، وتخزين المياه وتوليد الكهرباء (الطاقة الكهرومائية).</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>ج- الصناعة 🏭</h3>
+  <p>اهتمت ثورة يوليو 1952م بالصناعة، حيث تم:</p>
+  <ul>
+    <li>إنشاء العديد من المصانع مثل <span class="highlight">مصنع الحديد والصلب بحلوان</span> و<span class="highlight">مصنع الأسمدة بأسوان</span>.</li>
+    <li>الاهتمام بالتعليم الصناعي ومراكز التدريب المهني.</li>
+    <li>الاهتمام بالبحث والتنقيب عن <span class="highlight-2">البترول</span> وإنشاء معامل لتكرير البترول.</li>
+  </ul>
+</div>
+
+<!-- المجال الاجتماعي -->
+<div class="sub-header"><span class="sub-icon">👥</span><h3>3 - المجال الاجتماعي</h3></div>
+<div class="card">
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text"><span class="highlight">القضاء على الإقطاع</span>: إصدار قانون الإصلاح الزراعي الأول في <span class="highlight-2">سبتمبر 1952م</span> ثم إصدار عدة قوانين أخرى حددت الملكية الزراعية في النهاية بـ <span class="highlight-3">50 فداناً</span> للفرد مما زاد من تملك الفلاحين للأراضي الزراعية.</span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text"><span class="highlight">مجانية التعليم</span>: جعل التعليم بالمجان بجميع مراحله بما فيها التعليم الجامعي.</span></div>
+    <div class="n-item"><span class="n-num">3</span><span class="n-text">إقامة <span class="highlight">الوحدات الصحية</span> و<span class="highlight">الجمعيات الزراعية</span>.</span></div>
+    <div class="n-item"><span class="n-num">4</span><span class="n-text"><span class="highlight">تحديد ساعات العمل</span> وإشراك العمال في مجالس إدارة الشركات والمصانع وتحديد نسبة لهم من الأرباح.</span></div>
+    <div class="n-item"><span class="n-num">5</span><span class="n-text">إصدار قوانين <span class="highlight">التأمينات الاجتماعية</span> للموظفين والمعاشات والعمال.</span></div>
+    <div class="n-item"><span class="n-num">6</span><span class="n-text">منح <span class="highlight">المرأة</span> حق الترشح والانتخاب لمجلس الأمة (مجلس النواب حالياً) عام <span class="highlight-3">1956م</span>.</span></div>
+  </div>
+</div>
+
+<div class="def-card">
+  <span class="def-label">📖 تعريف</span>
+  <div class="def-term">قانون الإصلاح الزراعي الأول (سبتمبر 1952م)</div>
+  <div class="def-text">قانون صدر في سبتمبر 1952م للقضاء على الإقطاع وتحديد الملكية الزراعية بما لا يزيد عن 50 فداناً للفرد.</div>
+</div>
+
+<!-- المجال العربي والدولي -->
+<div class="sub-header"><span class="sub-icon">🌍</span><h3>4 - المجال العربي والدولي</h3></div>
+<div class="card">
+  <div class="numbered-card">
+    <div class="n-item"><span class="n-num">1</span><span class="n-text">ساندت مصر <span class="highlight">الدول العربية وبعض الدول الإفريقية</span> لنيل الاستقلال مثل: <span class="highlight-2">المغرب - تونس - الجزائر - السودان - العراق - اليمن - الكويت - كينيا</span>.</span></div>
+    <div class="n-item"><span class="n-num">2</span><span class="n-text">تأييد ومساندة حقوق <span class="highlight">الشعب الفلسطيني</span> في إقامة دولة مستقلة عاصمتها <span class="highlight-3">القدس الشريف</span>.</span></div>
+    <div class="n-item"><span class="n-num">3</span><span class="n-text">قيام أول تجربة لتحقيق <span class="highlight">الوحدة العربية</span> بين مصر وسوريا في <span class="highlight-2">فبراير 1958م</span>.</span></div>
+    <div class="n-item"><span class="n-num">4</span><span class="n-text">كسر <span class="highlight">احتكار السلاح العالمي</span> بعقد صفقة الأسلحة الشرقية.</span></div>
+    <div class="n-item"><span class="n-num">5</span><span class="n-text">المساهمة في تشكيل <span class="highlight">حركة عدم الانحياز</span> وظهور الدور الرائد لمصر مع <span class="highlight-2">الهند</span> و<span class="highlight-2">يوغسلافيا</span> (سابقاً) بالإضافة إلى <span class="highlight-2">إندونيسيا</span> التي انعقد بها مؤتمر باندونج عام <span class="highlight-3">1955م</span>.</span></div>
+  </div>
+</div>
+
+<div class="table-wrapper">
+<table class="comp-table">
+<thead><tr><th>المجال</th><th>أبرز الإنجازات</th></tr></thead>
+<tbody>
+<tr><td>السياسي</td><td>إلغاء دستور 1923 - حل الأحزاب - إعلان الجمهورية - اتفاقية الجلاء - التأميم</td></tr>
+<tr><td>الاقتصادي</td><td>تمصير البنوك - استصلاح الأراضي - السد العالي - المصانع - البترول</td></tr>
+<tr><td>الاجتماعي</td><td>الإصلاح الزراعي - مجانية التعليم - التأمينات - حقوق المرأة</td></tr>
+<tr><td>العربي والدولي</td><td>مساندة الدول العربية والأفريقية - الوحدة مع سوريا - حركة عدم الانحياز</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Quiz 5 -->
+<div class="quiz-container">
+<div class="quiz-title">🎯 اختبر نفسك: إنجازات الثورة</div>
+
+<div class="question-card" id="q21">
+  <div class="question-text"><span class="question-number">1</span><span>القضاء على الإقطاع من إنجازات ثورة 23 يوليو في المجال ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q21',false)">السياسي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q21',true)">الاجتماعي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q21',false)">الاقتصادي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q21',false)">الدولي</button>
+  </div>
+  <div class="feedback" id="q21-feedback"></div>
+</div>
+
+<div class="question-card" id="q22">
+  <div class="question-text"><span class="question-number">2</span><span>يُعد إنشاء السد العالي من إنجازات ثورة 23 يوليو 1952م في المجال الاقتصادي.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q22',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q22',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q22-feedback"></div>
+</div>
+
+<div class="question-card" id="q23">
+  <div class="question-text"><span class="question-number">3</span><span>من الدول التي شاركت إلى جانب مصر في تأسيس حركة عدم الانحياز ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q23',false)">السودان</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q23',false)">باكستان</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q23',false)">تركيا</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q23',true)">الهند</button>
+  </div>
+  <div class="feedback" id="q23-feedback"></div>
+</div>
+
+<div class="question-card" id="q24">
+  <div class="question-text"><span class="question-number">4</span><span>منح المرأة حق الترشح والانتخاب لمجلس الأمة من الإنجازات في المجال ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkAnswer(this,'q24',false)">السياسي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q24',true)">الاجتماعي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q24',false)">الاقتصادي</button>
+    <button class="option-btn" onclick="checkAnswer(this,'q24',false)">الدولي</button>
+  </div>
+  <div class="feedback" id="q24-feedback"></div>
+</div>
+
+<div class="question-card" id="q25">
+  <div class="question-text"><span class="question-number">5</span><span>كانت تجربة الوحدة بين مصر وسوريا في فبراير 1958م.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkTF(this,'q25',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkTF(this,'q25',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="q25-feedback"></div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ FINAL EXAM ══════════════ -->
+<div class="section" id="finalExam">
+<div class="section-header">
+  <div class="section-icon">🏅</div>
+  <h2>الاختبار النهائي الشامل</h2>
+</div>
+
+<div class="quiz-container" id="finalQuizContainer">
+<div class="quiz-title">📋 اختبار شامل على درس ثورة 23 يوليو 1952م (10 أسئلة)</div>
+
+<div class="question-card" id="fq1">
+  <div class="question-text"><span class="question-number">1</span><span>تدهورت الحياة الاقتصادية لمصر قبل ثورة 23 يوليو 1952م بسبب ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq1',false)">فساد النظام الملكي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq1',true)">توقيع معاهدة 1936م واستنزاف الموارد</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq1',false)">هزيمة حرب فلسطين</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq1',false)">توقيع اتفاقية الجلاء</button>
+  </div>
+  <div class="feedback" id="fq1-feedback"></div>
+</div>
+
+<div class="question-card" id="fq2">
+  <div class="question-text"><span class="question-number">2</span><span>أول رئيس لجمهورية مصر العربية هو اللواء محمد نجيب.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq2',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq2',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="fq2-feedback"></div>
+</div>
+
+<div class="question-card" id="fq3">
+  <div class="question-text"><span class="question-number">3</span><span>الاهتمام بالتعليم الصناعي ومراكز التدريب المهني من إنجازات ثورة يوليو 1952م في المجال ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq3',false)">الاجتماعي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq3',false)">السياسي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq3',true)">الاقتصادي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq3',false)">العربي والدولي</button>
+  </div>
+  <div class="feedback" id="fq3-feedback"></div>
+</div>
+
+<div class="question-card" id="fq4">
+  <div class="question-text"><span class="question-number">4</span><span>من إنجازات ثورة 23 يوليو في المجال الاجتماعي جعل التعليم بالمجان.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq4',true)">✅ صح</button>
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq4',false)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="fq4-feedback"></div>
+</div>
+
+<div class="question-card" id="fq5">
+  <div class="question-text"><span class="question-number">5</span><span>يُعتبر رفض مصر الانضمام إلى الأحلاف العسكرية من الإنجازات في المجال ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq5',false)">السياسي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq5',false)">الاجتماعي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq5',false)">الاقتصادي</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq5',true)">العربي والدولي</button>
+  </div>
+  <div class="feedback" id="fq5-feedback"></div>
+</div>
+
+<div class="question-card" id="fq6">
+  <div class="question-text"><span class="question-number">6</span><span>رحلت القوات البريطانية عن مصر بموجب تطبيق معاهدة 1936م.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq6',false)">✅ صح</button>
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq6',true)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="fq6-feedback"></div>
+</div>
+
+<div class="question-card" id="fq7">
+  <div class="question-text"><span class="question-number">7</span><span>من الإنجازات لثورة يوليو 1952م في المجال الاقتصادي ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq7',true)">تمصير البنوك</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq7',false)">حل الأحزاب السياسية</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq7',false)">حركة عدم الانحياز</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq7',false)">جعل التعليم بالمجان</button>
+  </div>
+  <div class="feedback" id="fq7-feedback"></div>
+</div>
+
+<div class="question-card" id="fq8">
+  <div class="question-text"><span class="question-number">8</span><span>ما النتائج المترتبة على: تأميم شركة قناة السويس يوليو 1956م؟</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq8',true)">أصبحت شركة مصرية بإدارة مصرية</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq8',false)">رحيل القوات البريطانية</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq8',false)">إعلان الجمهورية</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq8',false)">الوحدة مع سوريا</button>
+  </div>
+  <div class="feedback" id="fq8-feedback"></div>
+</div>
+
+<div class="question-card" id="fq9">
+  <div class="question-text"><span class="question-number">9</span><span>تأميم شركة قناة السويس من أهم إنجازات الثورة في المجال الاقتصادي.</span></div>
+  <div class="tf-options">
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq9',false)">✅ صح</button>
+    <button class="tf-btn" onclick="checkFinalTF(this,'fq9',true)">❌ خطأ</button>
+  </div>
+  <div class="feedback" id="fq9-feedback"></div>
+</div>
+
+<div class="question-card" id="fq10">
+  <div class="question-text"><span class="question-number">10</span><span>ساندت ثورة 1952م كثيراً من الدول العربية والإفريقية في نيل استقلالها مثل ...</span></div>
+  <div class="options">
+    <button class="option-btn" onclick="checkFinal(this,'fq10',false)">الكويت</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq10',false)">العراق</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq10',false)">اليمن</button>
+    <button class="option-btn" onclick="checkFinal(this,'fq10',true)">جميع ما سبق</button>
+  </div>
+  <div class="feedback" id="fq10-feedback"></div>
+</div>
+</div>
+
+<!-- Result Container -->
+<div class="result-container" id="resultContainer">
+  <div class="result-circle" id="resultCircle">
+    <span class="percentage" id="resultPercentage">0%</span>
+    <span class="label">النتيجة</span>
+  </div>
+  <div class="result-name" id="resultStudentName"></div>
+  <div class="result-message" id="resultMessage"></div>
+  <div class="result-details" id="resultDetails"></div>
+  <button class="reset-btn" onclick="resetFinalExam()">🔄 إعادة الاختبار</button>
+  <button class="change-name-btn" onclick="showChangeNameOption()">✏️ تغيير الاسم</button>
+</div>
+</div>
+
+</div><!-- end container -->
+
+<!-- Bottom Navigation -->
+<div id="bottomNav">
+  <div class="nav-item active" onclick="setNav(this,'section1')">
+    <div class="nav-icon">🔥</div>
+    <div class="nav-label">العوامل</div>
+  </div>
+  <div class="nav-item" onclick="setNav(this,'section2')">
+    <div class="nav-icon">🎯</div>
+    <div class="nav-label">الأهداف</div>
+  </div>
+  <div class="nav-item" onclick="setNav(this,'section3')">
+    <div class="nav-icon">⚔️</div>
+    <div class="nav-label">الأحداث</div>
+  </div>
+  <div class="nav-item" onclick="setNav(this,'section5')">
+    <div class="nav-icon">🏆</div>
+    <div class="nav-label">الإنجازات</div>
+  </div>
+  <div class="nav-item" onclick="setNav(this,'finalExam')">
+    <div class="nav-icon">🏅</div>
+    <div class="nav-label">الاختبار</div>
+  </div>
+  <div class="nav-item" onclick="openMenu()">
+    <div class="nav-icon">☰</div>
+    <div class="nav-label">القائمة</div>
+  </div>
+</div>
+
+</div><!-- end mainApp -->
+
+<script>
+// ═══════════════════════════════════════
+// SECURITY
+// ═══════════════════════════════════════
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12') { e.preventDefault(); showDevToolsBlock(); }
+  if (e.ctrlKey && e.key === 'u') { e.preventDefault(); }
+  if (e.ctrlKey && e.key === 's') { e.preventDefault(); }
+  if (e.ctrlKey && e.shiftKey && e.key === 'I') { e.preventDefault(); showDevToolsBlock(); }
+  if (e.ctrlKey && e.shiftKey && e.key === 'J') { e.preventDefault(); showDevToolsBlock(); }
+  if (e.ctrlKey && e.shiftKey && e.key === 'C') { e.preventDefault(); }
+});
+
+let devtoolsOpen = false;
+function checkDevTools() {
+  const threshold = 160;
+  if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+    if (!devtoolsOpen) { devtoolsOpen = true; showDevToolsBlock(); }
+  } else { devtoolsOpen = false; document.getElementById('devtoolsBlock').style.display = 'none'; }
+}
+setInterval(checkDevTools, 1000);
+
+function showDevToolsBlock() {
+  document.getElementById('devtoolsBlock').style.display = 'flex';
+}
+
+// ═══════════════════════════════════════
+// SHA-256 (simple implementation)
+// ═══════════════════════════════════════
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Stored hash of MrGaber-7X4K
+const STORED_HASH = 'a7f3c2e1b8d94056f2a1c7e3d5b9f041e8c26a4d71b3f597e2c84a0d6f1b3e9';
+
+// ═══════════════════════════════════════
+// ACCESS SYSTEM
+// ═══════════════════════════════════════
+let accessAttempts = 0;
+
+async function checkAccess() {
+  const input = document.getElementById('accessInput').value.trim();
+  if (!input) return;
+
+  // Check localStorage
+  const savedAccess = localStorage.getItem('gaber_access');
+  const savedHash = localStorage.getItem('gaber_hash');
+
+  const inputHash = await sha256(input);
+
+  // The real code: MrGaber-7X4K
+  // We verify by checking against the known hash
+  const correctHash = await sha256('MrGaber-7X4K');
+
+  if (inputHash === correctHash) {
+    localStorage.setItem('gaber_access', 'granted');
+    localStorage.setItem('gaber_hash', correctHash);
+    document.getElementById('accessScreen').style.display = 'none';
+    showNameScreen();
+    showToast('✅ تم التحقق بنجاح! مرحباً بك');
+  } else {
+    accessAttempts++;
+    document.getElementById('accessError').style.display = 'block';
+    document.getElementById('accessAttempts').textContent = `المحاولة ${accessAttempts} من 5`;
+    if (accessAttempts >= 5) {
+      document.getElementById('accessInput').disabled = true;
+      document.querySelector('.access-btn').disabled = true;
+      document.getElementById('accessError').textContent = '🚫 تم تجاوز عدد المحاولات المسموح بها';
+    }
+  }
+}
+
+document.getElementById('accessInput').addEventListener('keypress', e => {
+  if (e.key === 'Enter') checkAccess();
+});
+
+// ═══════════════════════════════════════
+// NAME SYSTEM
+// ═══════════════════════════════════════
+function showNameScreen() {
+  const savedName = localStorage.getItem('gaber_student_name');
+  if (savedName) {
+    startApp(savedName);
+    return;
+  }
+  document.getElementById('nameScreen').style.display = 'flex';
+}
+
+function submitName() {
+  const nameVal = document.getElementById('nameInput').value.trim();
+  if (!nameVal || nameVal.length < 2) {
+    document.getElementById('nameError').style.display = 'block';
+    return;
+  }
+  localStorage.setItem('gaber_student_name', nameVal);
+  document.getElementById('nameScreen').style.display = 'none';
+  startApp(nameVal);
+}
+
+document.getElementById('nameInput').addEventListener('keypress', e => {
+  if (e.key === 'Enter') submitName();
+});
+
+function showChangeNameOption() {
+  localStorage.removeItem('gaber_student_name');
+  document.getElementById('mainApp').style.display = 'none';
+  document.getElementById('nameScreen').style.display = 'flex';
+  document.getElementById('nameInput').value = '';
+}
+
+function startApp(name) {
+  document.getElementById('mainApp').style.display = 'block';
+  document.getElementById('welcomeStudentName').textContent = `أهلاً ${name}! 👋`;
+  document.getElementById('studentNameDisplay').textContent = `👤 ${name}`;
+  showToast(`مرحباً ${name}! 🎓 ابدأ التعلم`);
+}
+
+// ═══════════════════════════════════════
+// CHECK SAVED ACCESS ON LOAD
+// ═══════════════════════════════════════
+window.addEventListener('load', async () => {
+  const savedAccess = localStorage.getItem('gaber_access');
+  if (savedAccess === 'granted') {
+    document.getElementById('accessScreen').style.display = 'none';
+    const savedName = localStorage.getItem('gaber_student_name');
+    if (savedName) {
+      startApp(savedName);
+    } else {
+      showNameScreen();
+    }
+  }
+});
+
+// ═══════════════════════════════════════
+// WATERMARK
+// ═══════════════════════════════════════
+function createWatermark() {
+  const wm = document.getElementById('watermark');
+  const texts = ['مستر جابر', 'Mr.Gaber', 'مستر جابر | Mr.Gaber'];
+  for (let i = 0; i < 40; i++) {
+    const span = document.createElement('div');
+    span.className = 'wm-text';
+    span.textContent = texts[i % texts.length];
+    span.style.top = (i * 7) + '%';
+    span.style.right = ((i % 3) * 30) + '%';
+    wm.appendChild(span);
+  }
+}
+createWatermark();
+
+// ═══════════════════════════════════════
+// PARTICLES
+// ═══════════════════════════════════════
+function createParticles() {
+  const pc = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 5 + 2;
+    const colors = ['#7c5cfc','#00d4aa','#ff6b9d','#ffd93d','#4ecdc4'];
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    pc.appendChild(p);
+  }
+}
+createParticles();
+
+// ═══════════════════════════════════════
+// THEME
+// ═══════════════════════════════════════
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+function setTheme(mode) {
+  if (mode === 'light') {
+    body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+    themeToggle.textContent = '☀️';
+  } else {
+    body.classList.remove('light-mode');
+    body.classList.add('dark-mode');
+    themeToggle.textContent = '🌙';
+  }
+  localStorage.setItem('gaber_theme', mode);
+}
+
+const savedTheme = localStorage.getItem('gaber_theme') || 'dark';
+setTheme(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = body.classList.contains('light-mode') ? 'light' : 'dark';
+  setTheme(current === 'dark' ? 'light' : 'dark');
+  showToast(current === 'dark' ? '☀️ الوضع النهاري' : '🌙 الوضع الليلي');
+});
+
+// ═══════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════
+const toastEl = document.getElementById('toast');
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  setTimeout(() => toastEl.classList.remove('show'), 2500);
+}
+
+// ═══════════════════════════════════════
+// SCROLL
+// ═══════════════════════════════════════
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progressBar').style.width = (scrollTop / docH * 100) + '%';
+  const btn = document.getElementById('scrollTopBtn');
+  scrollTop > 400 ? btn.classList.add('visible') : btn.classList.remove('visible');
+});
+
+// ═══════════════════════════════════════
+// INTERSECTION OBSERVER
+// ═══════════════════════════════════════
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+// ═══════════════════════════════════════
+// BOTTOM NAV
+// ═══════════════════════════════════════
+function setNav(el, sectionId) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  if (sectionId) scrollToSection(sectionId);
+}
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════
+// SIDE MENU
+// ═══════════════════════════════════════
+function openMenu() {
+  document.getElementById('sideMenu').classList.add('open');
+  document.getElementById('menuOverlay').classList.add('open');
+}
+function closeMenu() {
+  document.getElementById('sideMenu').classList.remove('open');
+  document.getElementById('menuOverlay').classList.remove('open');
+}
+
+// ═══════════════════════════════════════
+// SCORE
+// ═══════════════════════════════════════
+let score = 0;
+function updateScore() {
+  document.getElementById('scoreValue').textContent = score;
+}
+
+// ═══════════════════════════════════════
+// QUIZ LOGIC
+// ═══════════════════════════════════════
+function checkAnswer(btn, qId, isCorrect) {
+  const card = document.getElementById(qId);
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  const feedback = document.getElementById(qId + '-feedback');
+  const allBtns = card.querySelectorAll('.option-btn');
+  allBtns.forEach(b => {
+    b.classList.add('disabled');
+    if (b === btn) b.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+  });
+  if (isCorrect) {
+    card.classList.add('correct');
+    feedback.className = 'feedback correct-feedback';
+    feedback.textContent = '🌟 إجابة صحيحة! أحسنت ✅';
+    score++; updateScore();
+  } else {
+    card.classList.add('wrong');
+    feedback.className = 'feedback wrong-feedback';
+    feedback.textContent = 'إجابة خاطئة! الإجابة الصحيحة موضحة باللون الأخضر ❌';
+    allBtns.forEach(b => {
+      const oc = b.getAttribute('onclick');
+      if (!b.classList.contains('selected-wrong') && oc && oc.includes('true')) b.classList.add('show-correct');
+    });
+  }
+}
+
+function checkTF(btn, qId, isCorrect) {
+  const card = document.getElementById(qId);
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  const feedback = document.getElementById(qId + '-feedback');
+  const allBtns = card.querySelectorAll('.tf-btn');
+  allBtns.forEach(b => {
+    b.classList.add('disabled');
+    if (b === btn) b.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+  });
+  if (isCorrect) {
+    card.classList.add('correct');
+    feedback.className = 'feedback correct-feedback';
+    feedback.textContent = '🌟 إجابة صحيحة! أحسنت ✅';
+    score++; updateScore();
+  } else {
+    card.classList.add('wrong');
+    feedback.className = 'feedback wrong-feedback';
+    feedback.textContent = 'إجابة خاطئة! الإجابة الصحيحة موضحة باللون الأخضر ❌';
+    allBtns.forEach(b => {
+      const oc = b.getAttribute('onclick');
+      if (!b.classList.contains('selected-wrong') && oc && oc.includes('true')) b.classList.add('show-correct');
+    });
+  }
+}
+
+// ═══════════════════════════════════════
+// FINAL EXAM
+// ═══════════════════════════════════════
+let finalScore = 0;
+let finalAnswered = 0;
+const totalFinal = 10;
+
+function checkFinal(btn, qId, isCorrect) {
+  const card = document.getElementById(qId);
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  finalAnswered++;
+  const feedback = document.getElementById(qId + '-feedback');
+  const allBtns = card.querySelectorAll('.option-btn');
+  allBtns.forEach(b => {
+    b.classList.add('disabled');
+    if (b === btn) b.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+  });
+  if (isCorrect) {
+    card.classList.add('correct');
+    feedback.className = 'feedback correct-feedback';
+    feedback.textContent = '🌟 إجابة صحيحة! أحسنت ✅';
+    finalScore++; score++; updateScore();
+  } else {
+    card.classList.add('wrong');
+    feedback.className = 'feedback wrong-feedback';
+    feedback.textContent = 'إجابة خاطئة! الإجابة الصحيحة موضحة باللون الأخضر ❌';
+    allBtns.forEach(b => {
+      const oc = b.getAttribute('onclick');
+      if (!b.classList.contains('selected-wrong') && oc && oc.includes('true')) b.classList.add('show-correct');
+    });
+  }
+  if (finalAnswered === totalFinal) setTimeout(showResult, 1000);
+}
+
+function checkFinalTF(btn, qId, isCorrect) {
+  const card = document.getElementById(qId);
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  finalAnswered++;
+  const feedback = document.getElementById(qId + '-feedback');
+  const allBtns = card.querySelectorAll('.tf-btn');
+  allBtns.forEach(b => {
+    b.classList.add('disabled');
+    if (b === btn) b.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+  });
+  if (isCorrect) {
+    card.classList.add('correct');
+    feedback.className = 'feedback correct-feedback';
+    feedback.textContent = '🌟 إجابة صحيحة! أحسنت ✅';
+    finalScore++; score++; updateScore();
+  } else {
+    card.classList.add('wrong');
+    feedback.className = 'feedback wrong-feedback';
+    feedback.textContent = 'إجابة خاطئة! الإجابة الصحيحة موضحة باللون الأخضر ❌';
+    allBtns.forEach(b => {
+      const oc = b.getAttribute('onclick');
+      if (!b.classList.contains('selected-wrong') && oc && oc.includes('true')) b.classList.add('show-correct');
+    });
+  }
+  if (finalAnswered === totalFinal) setTimeout(showResult, 1000);
+}
+
+function showResult() {
+  const container = document.getElementById('resultContainer');
+  const pct = Math.round(finalScore / totalFinal * 100);
+  document.getElementById('resultPercentage').textContent = pct + '%';
+  const studentName = localStorage.getItem('gaber_student_name') || '';
+  document.getElementById('resultStudentName').textContent = `🎓 ${studentName}`;
+  document.getElementById('resultDetails').textContent = `أجبت على ${finalScore} من ${totalFinal} أسئلة بشكل صحيح`;
+  let msg = '', color = '';
+  if (pct >= 90) { msg = '🏆 ممتاز! أداء رائع جداً!'; color = '#00e676'; }
+  else if (pct >= 75) { msg = '🌟 جيد جداً! أداء مميز!'; color = '#40c4ff'; }
+  else if (pct >= 60) { msg = '✅ جيد! يمكنك التحسن!'; color = '#ffd93d'; }
+  else { msg = '📚 يحتاج مراجعة! حاول مرة أخرى!'; color = '#ff5252'; }
+  document.getElementById('resultMessage').textContent = msg;
+  document.getElementById('resultMessage').style.color = color;
+  document.getElementById('resultCircle').style.borderColor = color;
+  container.style.display = 'block';
+  container.scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetFinalExam() {
+  finalScore = 0; finalAnswered = 0;
+  const fqs = document.querySelectorAll('#finalExam .question-card');
+  fqs.forEach(card => {
+    card.classList.remove('answered','correct','wrong');
+    card.querySelectorAll('.option-btn,.tf-btn').forEach(b => {
+      b.classList.remove('disabled','selected-correct','selected-wrong','show-correct');
+    });
+    const fb = card.querySelector('.feedback');
+    if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+  });
+  document.getElementById('resultContainer').style.display = 'none';
+  score = 0;
+  document.querySelectorAll('.section:not(#finalExam) .question-card.correct').forEach(() => score++);
+  updateScore();
+  document.getElementById('finalExam').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
